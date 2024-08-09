@@ -81,9 +81,9 @@ const card = document.querySelector(".nav-bar-cart");
 const notificacion = document.querySelector(".nav-bar-cart-quantity");
 
 const carrito = [];
-console.log(carrito)
 
-const productDetails = document.querySelector(".product-details")
+
+const productDetails = document.getElementById("product-details");
 
 card.addEventListener("click",() =>{
     if (!shoppingCardContainer.classList.contains("activo")) {
@@ -92,6 +92,10 @@ card.addEventListener("click",() =>{
         shoppingCardContainer.classList.remove("activo")
     }
 })
+
+function ocultar(){
+    
+}
 
 function myProduct(productosFiltrados){
     myProductContainer.innerHTML = "";
@@ -152,43 +156,42 @@ function buscarProductos(){
 function cartProduct(ID){
     const ShoppingProducto = productos.find(index => index.id === ID);
     carrito.push(ShoppingProducto);
- 
-    const shoppingProduct = document.createElement("div");
-    shoppingProduct.classList.add("shpng-cart-product");
 
-    const shoppingFigure = document.createElement("figure");
-    shoppingFigure.classList.add("shpng-cart-product-image");
-    shoppingProduct.append(shoppingFigure);
+    const shpngCartProduc = document.createElement("div");
+    shpngCartProduc.classList.add("shpng-cart-product");
+
+    const shpngCartProductImage = document.createElement("figure");
+    shpngCartProductImage.classList.add("shpng-cart-product-image");
+    shpngCartProduc.append(shpngCartProductImage);
 
     const shoppingImg = document.createElement("img");
     shoppingImg.setAttribute("src",`${ShoppingProducto.imagen}`);
     shoppingImg.setAttribute("alt",`${ShoppingProducto.nombre}`);
     shoppingImg.addEventListener("click",() => descripcionProduct(ShoppingProducto.id));
-    shoppingFigure.append(shoppingImg);
+    shpngCartProductImage.append(shoppingImg);
 
     const shoppingName = document.createElement("p");
     shoppingName.classList.add("hpng-cart-product-title");
     shoppingName.innerText =  `${ShoppingProducto.nombre}`;
-    shoppingProduct.append(shoppingName);
-
+    shpngCartProduc.append(shoppingName);
+    
     const shoppingPrecio = document.createElement("p");
     shoppingPrecio.classList.add("shpng-cart-product-price");
-    shoppingPrecio.innerText = `$${ShoppingProducto.precio.toFixed(2)}`
-    shoppingProduct.append(shoppingPrecio);
+    shoppingPrecio.innerText = `$${ShoppingProducto.precio.toFixed(2)}`;
+    shpngCartProduc.append(shoppingPrecio);
 
-    const figureContainer = document.createElement("figure");
-    figureContainer.classList.add("shpng-cart-product-delete");
-    shoppingProduct.append(figureContainer);
+    const shpngCartProductDelete =  document.createElement("figure");
+    shpngCartProductDelete.classList.add("shpng-cart-product-delete");
+    shpngCartProduc.append(shpngCartProductDelete);
 
     const imgClose = document.createElement("img");
     imgClose.setAttribute("src",`/icons/icon_close.png`);
-    figureContainer.append(imgClose);
+    imgClose.addEventListener("click",() => deleteProduct(ShoppingProducto.id))
+    shpngCartProductDelete.append(imgClose);
 
-    shoppincontent.append(shoppingProduct);
-    console.log(shoppincontent)
-
-    notificacion.innerHTML = `${ShoppingProducto.length}`
-    conteoTotal()
+    shoppincontent.append(shpngCartProduc);
+ 
+    conteoTotal();
 }
 
 function conteoTotal(){
@@ -217,6 +220,24 @@ function conteoTotal(){
     notificacion.innerHTML = `${carrito.length}`
 }
 
+function deleteProduct(ID){
+    const borrarProducto = carrito.findIndex(index => index.id ===ID);
+
+    if (borrarProducto !== -1) {
+        shoppincontent.removeChild(shoppincontent.children[borrarProducto]);
+        carrito.splice(borrarProducto,1)
+    }
+    conteoTotal()
+}
+
+function borrarDescriptcion(ID){
+    const dlete = productos.find(index => index.id === ID)
+    
+    if (dlete) {
+        productDetails.remove()
+    }
+}
+
 function descripcionProduct(ID){
 
     const descripcionFind = productos.find(index => index.id === ID);
@@ -230,6 +251,7 @@ function descripcionProduct(ID){
     const iconImgClose  = document.createElement("img");
     iconImgClose.setAttribute("src","/icons/icon_close.png");
     iconImgClose.classList.add("img");
+    iconImgClose.addEventListener("click", () => borrarDescriptcion(descripcionFind.id))
     containerImgClose.append(iconImgClose);
     productDetailsContainer.append(containerImgClose);
 

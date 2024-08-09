@@ -20,10 +20,6 @@
   .activo{
     display: none;
   }
-  .bloqueo{
-    display: block;
-  }
-
   .nav-bar-container{
     width: 100%;
     border-bottom: 1px solid var(--very-light-pink);
@@ -285,7 +281,7 @@
     margin-top: 12px;
     cursor: pointer;
   }
-  .product-details{
+  #product-details{
     position: absolute;
     top: 48px;
     right: 0;
@@ -356,7 +352,7 @@
     .product-card .product-img{
         height: 200px;
     }
-    .product-details{
+    #product-details{
       width: 100%;
     }
     .product-details-img-content 
