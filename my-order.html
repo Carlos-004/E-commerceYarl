@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shorcut icon" href="logos/favicon_yard_sale.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>My Order</title>
+  <style>
+    :root{
+      --white: #ffffff;
+      --black: #000000;
+      --dark: #236830;
+      --very-light-pink: #C7C7C7;
+      --text-input-field: #f7f7f7;
+      --hospital-green: #ACD9B2;
+      --sm: 14px;
+      --md: 16px;
+      --lg: 18px;
+    }
+    body{
+      font-family: 'Quicksand', sans-serif;
+      margin: 0;
+    }
+    .my-order-container{
+      width: 100%;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+    .my-order-container .my-order-title{
+      font-size: var(--lg);
+      width: 400px;
+    }
+    .my-order-caracteristics {
+      background-color: var(--text-input-field);
+      border-radius: 12px;
+      width: 350px;
+      height: 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 0px 24px;
+      align-items: center;
+      margin: 24px 0px;
+    }
+    .my-order-caracteristics .my-order-description{
+      display: flex;
+      flex-direction: column;
+    }
+    .my-order-caracteristics .my-order-description .my-order-date{
+      font-size: var(--lg);
+      font-weight: bold;
+    }
+    .my-order-caracteristics .my-order-description .my-order-quantity{
+      font-size: var(--md);
+      color: var(--very-light-pink);
+    }
+    .my-order-caracteristics .my-order-total{
+      font-size: var(--lg);
+      font-weight: bold;
+      text-align: end;
+    }
+    .my-order-product{
+      display: grid;
+      margin-bottom: 24px;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 16px;
+    }
+    .my-order-product .my-order-product-image{
+      margin: 0px;
+    }
+    .my-order-product .my-order-product-image img{
+      width: 90px;
+      height: 90px;
+      border-radius: 24px;
+      object-fit: cover;
+    }
+    .my-order-product .my-order-product-title{
+      color: var(--very-light-pink);
+      font-size: var(--md);
+    }
+    .my-order-product .my-order-product-price{
+      font-size: var(--lg);
+      font-weight: bold;
+    }
+    @media (max-width:640px){
+      .my-order-container .my-order-title{
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="my-order-container">
+    <h1 class="my-order-title">My Order</h1>
+    <div class="my-order-content">
+      <div class="my-order-caracteristics">
+        <p class="my-order-description">
+          <span class="my-order-date">04.25.2025</span>
+          <span class="my-order-quantity">6 articles</span>
+        </p>
+        <p class="my-order-total">
+          <span>$440.00</span>
+        </p>
+      </div>
+      <div class="my-order-products">
+
+        <div class="my-order-product">
+          <figure class="my-order-product-image">
+            <img src="https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="bike">
+          </figure>
+          <p class="my-order-product-title">Super Bike</p>
+          <p class="my-order-product-price">120,00</p>
+        </div>
+
+        <div class="my-order-product">
+          <figure class="my-order-product-image">
+            <img src="https://images.pexels.com/photos/2778192/pexels-photo-2778192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="bike">
+          </figure>
+          <p class="my-order-product-title">Bonsai</p>
+          <p class="my-order-product-price">40,00</p>
+        </div>
+
+        <div class="my-order-product">
+          <figure class="my-order-product-image">
+            <img src="https://images.pexels.com/photos/7181188/pexels-photo-7181188.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="bike">
+          </figure>
+          <p class="my-order-product-title">Desk</p>
+          <p class="my-order-product-price">100,00</p>
+        </div>
+
+        <div class="my-order-product">
+          <figure class="my-order-product-image">
+            <img src="https://images.pexels.com/photos/2320621/pexels-photo-2320621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="bike">
+          </figure>
+          <p class="my-order-product-title">Picture</p>
+          <p class="my-order-product-price">60,00</p>
+        </div>
+
+        <div class="my-order-product">
+          <figure class="my-order-product-image">
+            <img src="https://images.pexels.com/photos/4993062/pexels-photo-4993062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="bike">
+          </figure>
+          <p class="my-order-product-title">Coffee Maker</p>
+          <p class="my-order-product-price">20,00</p>
+        </div>
+
+        <div class="my-order-product">
+          <figure class="my-order-product-image">
+            <img src="https://images.pexels.com/photos/7181188/pexels-photo-7181188.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="bike">
+          </figure>
+          <p class="my-order-product-title">Desk</p>
+          <p class="my-order-product-price">100,00</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
