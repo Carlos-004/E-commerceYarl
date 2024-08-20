@@ -232,10 +232,9 @@ function deleteProduct(ID){
 
 function borrarDescriptcion(ID){
     const dlete = productos.find(index => index.id === ID)
+    productDetails.prepend(dlete);
+    productDetails.innerHTML ="";
     
-    if (dlete) {
-        productDetails.remove()
-    }
 }
 
 function descripcionProduct(ID){
